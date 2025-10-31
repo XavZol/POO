@@ -1,23 +1,20 @@
 // Arreglo de Objetos
 #include <iostream>
-#include "Alumno.h"
+#include "Perro.h"
 using namespace std;
 
 int main(int argc, char** argv){
-    Alumno alumnos[4]; //creacion de un arreglo de objetos estatico
-    Alumno* alumnos2 = new Alumno[3];//creacion de un arreglo de objetos dinamico
+    Perro perro1("Fido", "Doberman");
 
-    for(int i=0; i<3;i++){
-        (alumnos2+i)->pedirDatos();
-        cout<<endl;
-    }
+    perro1.mostrarDatos();
+    perro1.jugar();
 
-    cout<<"Mostrando las notas: "<<endl;
+    Perro* perro2 = new Perro("Toby", "Pitbull");
 
-    for(int i=0;i<3;i++){
-        (alumnos2+i)->mostrarNotas();
-        cout<<endl;
-    }
+    perro2->jugar(); //destruir un objeto de tipo dinamico
+    delete perro2;
+
+    perro2
 
     return 0;
 }
