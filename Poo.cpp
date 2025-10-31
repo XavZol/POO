@@ -1,16 +1,20 @@
-// Miembros static de una clase
+// Funciones Amigas (friend)
 #include <iostream>
-#include "Estatico.h"
+#include "Personaje.h"
 using namespace std;
 
+//funcion para modificar los valores de ataque y defensa de un objeto personaje
+void modificar(Personaje &p,int at, int def){//pasandolo por referencia modificamos el valor por si mismo
+    p.ataque = at;
+    p.defensa = def;
+}
+
 int main(int argc, char** argv){
-    Estatico* obj1 = new Estatico();
-    Estatico* obj2 = new Estatico();
-    Estatico* obj3 = new Estatico();
+    Personaje* principal = new Personaje(100, 90);
+    principal->mostrarDatos();
 
-    cout<<obj1->getContador()<<endl;
-
-    cout<<"La suma es: "<<Estatico::sumar(4,5);
+    modificar(*principal, 50, 80);//pasamos el objeto por referencia
+    principal->mostrarDatos();
 
     return 0;
 }
