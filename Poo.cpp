@@ -1,12 +1,16 @@
-// Clases compuestas
+// Miembros static de una clase
 #include <iostream>
-#include "Estudiante.h"
+#include "Estatico.h"
 using namespace std;
 
 int main(int argc, char** argv){
-    Estudiante* estudiante1 = new Estudiante("34FG",15.4,56,"Calle albitrio #78");
-    
-    estudiante1->mostrarDatos();
+    Estatico* obj1 = new Estatico();
+    Estatico* obj2 = new Estatico();
+    Estatico* obj3 = new Estatico();
+
+    cout<<obj1->getContador()<<endl;
+
+    cout<<"La suma es: "<<Estatico::sumar(4,5);
 
     return 0;
 }
