@@ -1,4 +1,6 @@
-// Destructor de objetos 
+// Autorreferencia del objeto this
+#include <iostream>
+using namespace std;
 
 class Perro{
     //atributos
@@ -7,9 +9,9 @@ class Perro{
 
     //metodos
     public:
-        Perro(string _nombre,string _raza){ //Constructor
-            nombre = _nombre;
-            raza = _raza;
+        Perro(string nombre,string raza){ //Constructor
+            nombre = nombre;
+            raza = raza;
         }
 
         ~Perro(){ //destructor 
