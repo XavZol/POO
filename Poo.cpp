@@ -1,14 +1,23 @@
-// Sobrecarga de Funciones Miembro
+// Arreglo de Objetos
 #include <iostream>
-#include "Persona.h"
+#include "Alumno.h"
 using namespace std;
 
 int main(int argc, char** argv){
-    Persona* persona1 = new Persona("Javier",27);
-    persona1->correr(); //Correr sin parametros
+    Alumno alumnos[4]; //creacion de un arreglo de objetos estatico
+    Alumno* alumnos2 = new Alumno[3];//creacion de un arreglo de objetos dinamico
 
-    Persona* persona2 = new Persona("123456");
-    persona2->correr(5);//Sobrecarga de metodos constructores
+    for(int i=0; i<3;i++){
+        (alumnos2+i)->pedirDatos();
+        cout<<endl;
+    }
+
+    cout<<"Mostrando las notas: "<<endl;
+
+    for(int i=0;i<3;i++){
+        (alumnos2+i)->mostrarNotas();
+        cout<<endl;
+    }
 
     return 0;
 }
