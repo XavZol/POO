@@ -1,22 +1,40 @@
-/* Creacion de objetos */
+/* Definir una clase DiaAnio con los atributos mes y dia, los métodos igual() visualizar(). El mes se registra como un valor entero
+(1, Enero, 2, Febrero, etc.). El día del mes se  registra en otra variable entera día.
+Escribir un programa que compruebe si una fecha es su cumpleaños.  */
 #include <iostream>
-#include "Punto.h"
+#include <stdlib.h>
+#include "DiaAnio.h"
 
 using namespace std;
 
 int main(int argc,char** argv){
-    Punto p1(2,1); //Creacion de un objeto estatico 
+    DiaAnio* hoy;
+    DiaAnio* cumple;
+    int d, m;
 
-    cout<<"El valor de X es: "<<p1.getX()<<endl;
-    cout<<"El valor de Y es: "<<p1.getY()<<endl;
+    cout<<"Introduzca la fecha de hoy, dia: ";
+    cin>>d;
+    cout<<"Introduzca el mes: ";
+    cin>>m;
+    hoy = new DiaAnio(d,m);
 
-    Punto* p2 = new Punto();//creacion de un objeto dinamico 
+    cout<<"\nIntroduzca la fecha de su cumpleaños, dia: ";
+    cin>>d;
+    cout<<"Introduzca el mes: ";
+    cin>>m;
+    cumple = new DiaAnio(d, m);
+//mostramos las fechas 
+    hoy->visualizar();
+    cout<<endl;
+    cumple->visualizar();
 
-    p2->setX(5);
-    p2->setY(8);
+    if(hoy->igual(*cumple)){
+        cout<<"\nFeliz cumpleaños!\n";
+    }
+    else{
+        cout<<"\nNo es tu cumpleaños, ten un buen dia \n";
+    }
 
-    cout<<"El valor de X es: "<<p2->getX()<<endl;
-    cout<<"El valor de Y es: "<<p2->getY()<<endl;
-
+system("pause");
 return 0;
 }
