@@ -1,20 +1,29 @@
-// Funciones Amigas (friend)
+// Construir un programa que calcule el área y el perrímetro de un cuadrilátero dada la longitud de sus lados. Los valores 
+// de la longitud deberán introducirse por línea de ordenes. Si es un cuadrado, sólo se proporcionara la longitud de uno de los lados
+//al constructor.
 #include <iostream>
-#include "Personaje.h"
+#include "Cuadrilatero.h"
 using namespace std;
 
-//funcion para modificar los valores de ataque y defensa de un objeto personaje
-void modificar(Personaje &p,int at, int def){//pasandolo por referencia modificamos el valor por si mismo
-    p.ataque = at;
-    p.defensa = def;
-}
+void modificar(Personaje &p,int at, int def){
+    Cuadrilatero* c1;
+    float lado1, lado2;
 
-int main(int argc, char** argv){
-    Personaje* principal = new Personaje(100, 90);
-    principal->mostrarDatos();
+    cout<<"Digite el lado 1: ";
+    cin>>lado1;
+    cout<<"Digite el lado 2: ";
+    cin>>lado2;
 
-    modificar(*principal, 50, 80);//pasamos el objeto por referencia
-    principal->mostrarDatos();
+    if(lado1==lado2){ //cuadrado
+        c1 = new Cuadrilatero(lado1);
+    }
+    else {
+         //rectangulo
+        c1 = new Cuadrilatero(lado1,lado2);
+    }
+
+    cout<<"El perimetro es: "<<c1->obtenerPerimetro()<<endl;
+    cout<<"El area es: "<<c1->obtenerArea()<<endl;
 
     return 0;
 }
