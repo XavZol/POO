@@ -1,37 +1,39 @@
-/* */
+/*Construir un programa para una competencia de atletismo, el programa debe gestionar una serie de atletlas caracterizados por un número
+de atleta, nombre y tiempo de carrera, al final el programa debe mostrar los datos del atleta ganador de la carrera */
 #include <iostream>
-#include "Vehiculo.h"
+#include "Atleta.h"
 using namespace std;
 
 void modificar(Personaje &p,int at, int def){
-    Vehiculo* coches;
-    int numeroVehiculos, indiceBarato;
-    string marca, modelo;
-    float precio;
+    Atleta* atletas;
+    int numeroAtletas, indiceAtleta;
+     int numeroAtleta;
+       string nombre;
+        float tiempoCarrera;
 
-    cout<<"Digite el numero de vehiculos: ";
-    cin>>numeroVehiculos;
+    cout<<"Digite el numero de atletas a competir: ";
+    cin>>numeroAtletas;
 
-    coches = new Vehiculo[numeroVehiculos]; //arreglo de objetos
+    atletas = new Atleta[numeroAtletas];
 
-    for(int i=0; i<numeroVehiculos; i++){
-        cout<<"\nDigite los datos del vehiculo "<<i+1<<": "<<endl;
+    for(int i=0; i<numeroAtletas;i++){
+        cout<<"Digite los datos del atleta"<<i+1<<": "<<endl;
+
+        cout<<"Digite el numero de atleta: ";
+        cin>>numeroAtleta;
         cin.ignore();
-        cout<<"Digite la marca: ";
-        getline(cin,marca);
-        cout<<"Digite el modelo: ";
-        getline(cin,modelo);
-        cout<<"Digite el precio: ";
-        cin>>precio;
+        cout<<"Digite el nombre del atleta: ";
+        getline(cin,nombre);
+        cout<<"Digite el tiempo de carrera: ";
+        cin>>tiempoCarrera;
 
-        coches[i] = Vehiculo(marca, modelo, precio);
+        atletas[i] = Atleta(numeroAtleta, nombre, tiempoCarrera);
     }
 
-    indiceBarato = Vehiculo::indiceMBarato(coches, numeroVehiculos);
+    indiceAtleta = Atleta::indiceGanador(atletas,numeroAtletas);
+    
+    cout<<"\nEl atleta ganador de la carrera es: "<<endl;
+    (atletas+indiceAtleta)->mostrarDatos();
 
-    cout<<"\nEl vehiculo mas barato es: "<<endl;
-    (coches+indiceBarato)->mostrarDatos();
-
-    delete[] coches;
     return 0;
 }
